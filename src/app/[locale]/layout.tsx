@@ -3,7 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getMessages } from "@/i18n/getMessages";
-import { locales, type Locale } from "@/i18n/locales";
+import { defaultLocale, locales, type Locale } from "@/i18n/locales";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -13,9 +13,15 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale };
+  // 在 Next.js 16 中，params 是一个 Promise，需要在函数体内解包
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  const { locale } = params;
+  const { locale: rawLocale } = await params;
+
+  const locale: Locale = locales.includes(rawLocale as Locale)
+    ? (rawLocale as Locale)
+    : defaultLocale;
+
   const messages = getMessages(locale) as any;
 
   const title: string = messages.seoTitle;
@@ -51,14 +57,15 @@ export default async function LocaleLayout({
 }: {
   children: ReactNode;
   // 在 Next.js 16 中，params 是一个 Promise，需要在函数体内解包
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const { locale: rawLocale } = await params;
 
-  if (!locales.includes(locale)) {
+  if (!locales.includes(rawLocale as Locale)) {
     notFound();
   }
 
+  const locale = rawLocale as Locale;
   const messages = getMessages(locale);
 
   return (

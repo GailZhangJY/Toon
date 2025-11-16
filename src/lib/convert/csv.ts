@@ -58,10 +58,10 @@ function unflattenRow(row: Record<string, unknown>): Record<string, unknown> {
 // 将 CSV 文本解析为对象数组
 export function parseCsv(text: string): any[] {
   // 使用 header: true 让 papaparse 自动读取首行为字段名
-  const result = Papa.parse<Record<string, unknown>>(text, {
+  const result = Papa.parse(text, {
     header: true,
     skipEmptyLines: true,
-  });
+  }) as any;
 
   if (result.errors && result.errors.length > 0) {
     // 只抛出第一条错误信息，供上层捕获
