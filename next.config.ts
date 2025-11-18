@@ -23,15 +23,23 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60, // 图片缓存时间（秒）
+    dangerouslyAllowSVG: true,
+    contentDispositionType: "attachment",
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   
   // 优化生产构建
   productionBrowserSourceMaps: false, // 禁用生产环境 source maps
+  poweredByHeader: false, // 移除 X-Powered-By 头
   
   // 优化 CSS
   experimental: {
     optimizeCss: true, // 优化 CSS 加载
+    optimizePackageImports: ["react-markdown", "remark-gfm", "rehype-highlight"], // 优化包导入
   },
+  
+  // 静态优化
+  output: "standalone", // 优化生产部署
 };
 
 export default withNextIntl(nextConfig);

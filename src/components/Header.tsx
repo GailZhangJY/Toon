@@ -108,7 +108,7 @@ export default function Header() {
               ))}
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-              <svg className="h-4 w-4 text-zinc-500 dark:text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-4 w-4 text-zinc-500 dark:text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </div>
@@ -119,8 +119,10 @@ export default function Header() {
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="rounded-lg p-2 text-zinc-700 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800 md:hidden"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
           >
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               {mobileMenuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -131,9 +133,13 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* 移动端菜单 */}
-      {mobileMenuOpen && (
-        <div className="border-t border-zinc-200 bg-white px-4 py-3 dark:border-zinc-800 dark:bg-zinc-950 md:hidden">
+      {/* 移动端菜单 - 使用 max-height 过渡避免布局偏移 */}
+      <div 
+        className={`overflow-hidden border-zinc-200 bg-white transition-all duration-300 ease-in-out dark:border-zinc-800 dark:bg-zinc-950 md:hidden ${
+          mobileMenuOpen ? "max-h-96 border-t" : "max-h-0"
+        }`}
+      >
+        <div className="px-4 py-3">
           <div className="flex flex-col gap-1">
             {navLinks.map((link) => {
               const active = isActive(link.href);
@@ -154,7 +160,7 @@ export default function Header() {
             })}
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }

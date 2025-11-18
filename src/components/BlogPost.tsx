@@ -21,6 +21,22 @@ interface TOCItem {
 export default function BlogPost({ content, title }: BlogPostProps) {
   const [activeId, setActiveId] = useState<string>("");
 
+  // 动态加载代码高亮样式，避免阻塞首页渲染
+  useEffect(() => {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css";
+    link.media = "print";
+    link.onload = function() {
+      (this as HTMLLinkElement).media = "all";
+    };
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
+
   // 从 Markdown 内容生成目录
   const toc = useMemo(() => {
     const headingRegex = /^(#{1,3})\s+(.+)$/gm;

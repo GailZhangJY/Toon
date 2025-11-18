@@ -84,10 +84,10 @@ export default function ContactPage() {
               {t("contactEmailDesc")}
             </p>
             <a
-              href="mailto:gailzhangjy@163.com"
+              href="mailto:contact@toon.fast"
               className="inline-flex items-center gap-2 text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
             >
-              <span className="font-medium">gailzhangjy@163.com</span>
+              <span className="font-medium">contact@toon.fast</span>
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>

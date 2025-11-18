@@ -71,6 +71,8 @@ export default function FAQ({ faqs }: FAQProps) {
                 type="button"
                 onClick={() => toggleFAQ(index)}
                 className="flex w-full items-center justify-between px-6 py-4 text-left transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
               >
                 <span className="pr-4 text-base font-semibold text-zinc-900 dark:text-zinc-50">
                   {faq.question}
@@ -82,6 +84,7 @@ export default function FAQ({ faqs }: FAQProps) {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -92,14 +95,25 @@ export default function FAQ({ faqs }: FAQProps) {
                 </svg>
               </button>
 
-              {/* 答案内容 */}
-              {openIndex === index && (
-                <div className="border-t border-zinc-200 px-6 py-4 dark:border-zinc-800">
-                  <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                    {faq.answer}
-                  </p>
+              {/* 答案内容 - 使用 grid 过渡避免布局偏移 */}
+              <div 
+                className={`grid transition-all duration-300 ease-in-out ${
+                  openIndex === index ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <div 
+                    id={`faq-answer-${index}`}
+                    className="border-t border-zinc-200 px-6 py-4 dark:border-zinc-800"
+                    role="region"
+                    aria-labelledby={`faq-question-${index}`}
+                  >
+                    <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                      {faq.answer}
+                    </p>
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>

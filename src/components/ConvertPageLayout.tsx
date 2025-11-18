@@ -4,17 +4,33 @@ import Footer from "./Footer";
 import Converter from "./Converter";
 import type { Format } from "@/lib/convert";
 
+// 骨架屏组件，避免布局偏移
+const SkeletonLoader = () => (
+  <div className="animate-pulse space-y-4 py-12">
+    <div className="mx-auto h-8 w-64 rounded bg-zinc-200 dark:bg-zinc-800" />
+    <div className="mx-auto h-4 w-96 rounded bg-zinc-200 dark:bg-zinc-800" />
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {[1, 2, 3].map((i) => (
+        <div key={i} className="h-48 rounded-lg bg-zinc-200 dark:bg-zinc-800" />
+      ))}
+    </div>
+  </div>
+);
+
 // 延迟加载非关键组件，减少初始 JavaScript 包大小
 const HowToConvert = dynamic(() => import("./HowToConvert"), {
-  loading: () => <div className="h-96" />, // 占位符，避免布局偏移
+  loading: () => <SkeletonLoader />,
+  ssr: false, // 禁用服务端渲染，避免水合不匹配
 });
 
 const Features = dynamic(() => import("./Features"), {
-  loading: () => <div className="h-96" />,
+  loading: () => <SkeletonLoader />,
+  ssr: false,
 });
 
 const FAQ = dynamic(() => import("./FAQ"), {
-  loading: () => <div className="h-96" />,
+  loading: () => <SkeletonLoader />,
+  ssr: false,
 });
 
 interface ConvertPageLayoutProps {
