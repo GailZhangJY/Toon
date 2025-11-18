@@ -167,11 +167,12 @@ export default function Converter({
       {/* 格式选择与交换 */}
       <section className="flex flex-wrap items-center gap-3 rounded-xl border border-zinc-200 bg-white p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
         <div className="flex items-center gap-2">
-          <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+          <label htmlFor="input-format-selector" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
             {t("inputFormat")}
-          </span>
+          </label>
           <div className="relative">
             <select
+              id="input-format-selector"
               className="appearance-none rounded-lg border border-zinc-300 bg-white px-4 py-2 pr-10 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:border-blue-400 hover:shadow-md focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-blue-500"
               value={inputFormat}
               onChange={handleInputFormatChange}
@@ -197,11 +198,12 @@ export default function Converter({
         </button>
 
         <div className="flex items-center gap-2">
-          <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+          <label htmlFor="output-format-selector" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
             {t("outputFormat")}
-          </span>
+          </label>
           <div className="relative">
             <select
+              id="output-format-selector"
               className="appearance-none rounded-lg border border-zinc-300 bg-white px-4 py-2 pr-10 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:border-blue-400 hover:shadow-md focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-blue-500"
               value={outputFormat}
               onChange={handleOutputFormatChange}

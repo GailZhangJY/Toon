@@ -1,11 +1,29 @@
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getAllPosts } from "@/lib/blog";
+import { generateAlternates } from "@/lib/metadata";
+import { getMessages } from "@/i18n/getMessages";
+import type { Locale } from "@/i18n/locales";
 
 interface BlogListPageProps {
   params: Promise<{ locale: string }>;
+}
+
+// 生成博客列表页面的 SEO 元信息
+export async function generateMetadata({
+  params,
+}: BlogListPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const messages = getMessages(locale as Locale) as any;
+
+  return {
+    title: messages.blogTitle || "Blog",
+    description: messages.blogSubtitle || "Insights, tutorials, and updates about data format conversion",
+    alternates: generateAlternates(locale, "blog"),
+  };
 }
 
 export default async function BlogListPage({ params }: BlogListPageProps) {

@@ -1,10 +1,21 @@
+import dynamic from "next/dynamic";
 import Header from "./Header";
 import Footer from "./Footer";
 import Converter from "./Converter";
-import HowToConvert from "./HowToConvert";
-import Features from "./Features";
-import FAQ from "./FAQ";
 import type { Format } from "@/lib/convert";
+
+// 延迟加载非关键组件，减少初始 JavaScript 包大小
+const HowToConvert = dynamic(() => import("./HowToConvert"), {
+  loading: () => <div className="h-96" />, // 占位符，避免布局偏移
+});
+
+const Features = dynamic(() => import("./Features"), {
+  loading: () => <div className="h-96" />,
+});
+
+const FAQ = dynamic(() => import("./FAQ"), {
+  loading: () => <div className="h-96" />,
+});
 
 interface ConvertPageLayoutProps {
   inputFormat: Format;

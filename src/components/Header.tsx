@@ -91,7 +91,11 @@ export default function Header() {
         <div className="flex items-center gap-3">
           {/* 语言切换下拉菜单 */}
           <div className="relative">
+            <label htmlFor="language-selector" className="sr-only">
+              Select Language
+            </label>
             <select
+              id="language-selector"
               value={locale}
               onChange={(e) => handleLocaleChange(e.target.value)}
               className="appearance-none rounded-lg border border-zinc-300 bg-white px-3 py-2 pr-8 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:border-blue-400 hover:shadow-md focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-blue-500"

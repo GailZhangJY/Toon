@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getMessages } from "@/i18n/getMessages";
 import { defaultLocale, locales, type Locale } from "@/i18n/locales";
+import { generateAlternates } from "@/lib/metadata";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -28,8 +29,6 @@ export async function generateMetadata({
   const description: string = messages.seoDescription;
   const keywords: string[] | undefined = messages.seoKeywords;
 
-  const isZh = locale === "zh";
-
   return {
     title,
     description,
@@ -38,16 +37,10 @@ export async function generateMetadata({
       title,
       description,
       type: "website",
+      locale: locale,
     },
-    alternates: {
-      // canonical 使用当前语言的根路径
-      canonical: isZh ? "/zh" : "/en",
-      // 多语言版本互相声明，方便搜索引擎识别
-      languages: {
-        zh: "/zh",
-        en: "/en",
-      },
-    },
+    // 生成所有 20 种语言的 hreflang 标签（使用绝对 URL）
+    alternates: generateAlternates(locale),
   };
 }
 

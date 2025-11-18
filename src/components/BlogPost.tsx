@@ -42,23 +42,33 @@ export default function BlogPost({ content, title }: BlogPostProps) {
   }, [content]);
 
   useEffect(() => {
-    // 监听滚动，高亮当前标题
-    const handleScroll = () => {
-      const headings = toc.map((item) => document.getElementById(item.id)).filter(Boolean) as HTMLElement[];
-      const scrollPosition = window.scrollY + 100;
+    // 使用 IntersectionObserver 监听标题可见性，避免强制重排
+    const headingElements = toc.map((item) => document.getElementById(item.id)).filter(Boolean) as HTMLElement[];
+    
+    if (headingElements.length === 0) return;
 
-      for (let i = headings.length - 1; i >= 0; i--) {
-        const heading = headings[i];
-        if (heading && heading.offsetTop <= scrollPosition) {
-          setActiveId(heading.id);
-          break;
-        }
-      }
+    const observerOptions = {
+      rootMargin: "-100px 0px -66%",
+      threshold: 0,
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // 初始化
-    return () => window.removeEventListener("scroll", handleScroll);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveId(entry.target.id);
+        }
+      });
+    }, observerOptions);
+
+    headingElements.forEach((heading) => {
+      observer.observe(heading);
+    });
+
+    return () => {
+      headingElements.forEach((heading) => {
+        observer.unobserve(heading);
+      });
+    };
   }, [toc]);
 
   const scrollToHeading = (id: string) => {

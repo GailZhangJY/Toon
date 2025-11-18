@@ -167,3 +167,14 @@ jp
 
 更新sitemap
 不要创建说明文档
+
+务必添加 <link rel="alternate" hreflang="x" ... /> 标签，告诉 Google 这些页面的关系。
+
+
+Document does not have a valid rel=canonicalIs not an absolute URL (/en)
+
+Select elements do not have associated label elements.
+
+Polyfills and transforms enable older browsers to use new JavaScript features. However, many aren't necessary for modern browsers. Consider modifying your JavaScript build process to not transpile Baseline features, unless you know you must support older browsers. Learn why most sites can deploy ES6+ code without transpilingLCPFCPUnscored
+
+Avoid chaining critical requests by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.LCPUnscored
