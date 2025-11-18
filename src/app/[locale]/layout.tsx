@@ -5,6 +5,10 @@ import { notFound } from "next/navigation";
 import { getMessages } from "@/i18n/getMessages";
 import { defaultLocale, locales, type Locale } from "@/i18n/locales";
 import { generateAlternates } from "@/lib/metadata";
+import { 
+  generateWebApplicationSchema, 
+  generateOrganizationSchema 
+} from "@/lib/schema";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -61,9 +65,31 @@ export default async function LocaleLayout({
   const locale = rawLocale as Locale;
   const messages = getMessages(locale);
 
+  // 生成结构化数据
+  const webAppSchema = generateWebApplicationSchema(locale);
+  const orgSchema = generateOrganizationSchema();
+
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      {children}
-    </NextIntlClientProvider>
+    <>
+      {/* 结构化数据 - WebApplication Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(webAppSchema),
+        }}
+      />
+      
+      {/* 结构化数据 - Organization Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(orgSchema),
+        }}
+      />
+
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        {children}
+      </NextIntlClientProvider>
+    </>
   );
 }

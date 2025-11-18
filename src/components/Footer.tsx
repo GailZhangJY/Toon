@@ -42,6 +42,7 @@ export default function Footer() {
                 width={32}
                 height={32}
                 className="h-8 w-8"
+                style={{ width: '32px', height: '32px' }}
               />
               <span className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
                 {t("siteName")}

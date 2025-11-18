@@ -32,6 +32,7 @@ export default function AboutPage() {
               width={64}
               height={64}
               className="h-16 w-16"
+              style={{ width: '64px', height: '64px' }}
             />
             <div>
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">

@@ -42,6 +42,18 @@ img, video {
   display: block;
 }
 
+/* Next.js Image 组件优化 - 防止布局偏移 */
+img[data-nimg] {
+  /* 确保 Next.js Image 组件保留空间 */
+  width: auto;
+  height: auto;
+}
+
+/* 为所有图片添加 aspect-ratio 支持 */
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
 /* 防止字体加载导致的布局偏移 */
 * {
   font-feature-settings: "kern" 1;

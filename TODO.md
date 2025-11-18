@@ -190,3 +190,20 @@ Requests are blocking the page's initial render, which may delay LCP. Deferring 
 When a button doesn't have an accessible name, screen readers announce it as "button", making it unusable for users who rely on screen readers. Learn how to make buttons more accessible.
 
 Layout shifts occur when elements move absent any user interaction. Investigate the causes of layout shifts, such as elements being added, removed, or their fonts changing as the page loads.CLSUnscored
+
+
+添加 WebApplication Schema：告诉 Google 这是一个软件工具。
+添加 FAQPage Schema：在搜索结果中直接展示问答，占据更大版面。
+添加 HowTo Schema：展示转换步骤。
+
+当元素在没有任何用户互动的情况下移动时，就会发生布局偏移。调查布局偏移的原因，例如在网页加载时添加、移除元素或元素字体发生了变化。CLS不计分
+元素
+布局偏移分数
+总计
+0.197
+Input Format Toon JSON CSV Swap ⇄ Output Format Toon JSON CSV Input TOON Import…
+<div class="space-y-6">
+0.197
+Toon Fast Logo
+<img alt="Toon Fast Logo" loading="lazy" width="32" height="32" decoding="async" data-nimg="1" class="h-8 w-8" srcset="/_next/image?url=%2Flogo.png&amp;w=32&amp;q=75 1x, /_next/image?url=%2Flogo.png&amp;w=…" src="/_next/image?url=%2Flogo.png&amp;w=64&amp;q=75" style="color: transparent;">
+未设置尺寸的图片元素

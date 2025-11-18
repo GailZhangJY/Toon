@@ -1,8 +1,11 @@
 import dynamic from "next/dynamic";
+import { useLocale } from "next-intl";
 import Header from "./Header";
 import Footer from "./Footer";
 import Converter from "./Converter";
+import StructuredData from "./StructuredData";
 import type { Format } from "@/lib/convert";
+import { generateHowToSchema, generateFAQPageSchema } from "@/lib/schema";
 
 // 骨架屏组件，避免布局偏移
 const SkeletonLoader = () => (
@@ -64,8 +67,31 @@ export default function ConvertPageLayout({
   features,
   faqs,
 }: ConvertPageLayoutProps) {
+  const locale = useLocale();
+
+  // 生成 HowTo Schema（如果有步骤）
+  const howToSchema = howToSteps && pageTitle
+    ? generateHowToSchema(
+        locale,
+        pageTitle,
+        howToSteps.map((step) => ({
+          title: step.title,
+          description: step.description,
+        }))
+      )
+    : null;
+
+  // 生成 FAQ Schema（如果有 FAQ）
+  const faqSchema = faqs
+    ? generateFAQPageSchema(locale, faqs)
+    : null;
+
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-900">
+      {/* 结构化数据 */}
+      {howToSchema && <StructuredData data={howToSchema} />}
+      {faqSchema && <StructuredData data={faqSchema} />}
+
       {/* 顶部导航栏 */}
       <Header />
 
