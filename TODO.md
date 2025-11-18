@@ -206,4 +206,13 @@ Input Format Toon JSON CSV Swap ⇄ Output Format Toon JSON CSV Input TOON Impor
 0.197
 Toon Fast Logo
 <img alt="Toon Fast Logo" loading="lazy" width="32" height="32" decoding="async" data-nimg="1" class="h-8 w-8" srcset="/_next/image?url=%2Flogo.png&amp;w=32&amp;q=75 1x, /_next/image?url=%2Flogo.png&amp;w=…" src="/_next/image?url=%2Flogo.png&amp;w=64&amp;q=75" style="color: transparent;">
-未设置尺寸的图片元素
+
+
+Layout shift culprits
+Layout shifts occur when elements move absent any user interaction. Investigate the causes of layout shifts, such as elements being added, removed, or their fonts changing as the page loads.CLSUnscored
+Element
+Layout shift score
+Total
+0.197
+Input Format Toon JSON CSV Swap ⇄ Output Format Toon JSON CSV Input TOON Import…
+<div class="space-y-6">
