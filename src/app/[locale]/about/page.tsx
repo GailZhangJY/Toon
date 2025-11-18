@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 export default function AboutPage() {
   const t = useTranslations();
@@ -25,9 +26,13 @@ export default function AboutPage() {
         {/* 项目介绍 */}
         <div className="mb-12 rounded-xl border border-zinc-200 bg-white p-8 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
           <div className="mb-6 flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 text-white font-bold text-2xl shadow-lg">
-              T
-            </div>
+            <Image
+              src="/logo.png"
+              alt="Toon Fast Logo"
+              width={64}
+              height={64}
+              className="h-16 w-16"
+            />
             <div>
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
                 Toon Fast

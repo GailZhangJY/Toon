@@ -4,6 +4,8 @@ import { useTranslations, useLocale } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { locales, localeNames } from "@/i18n/locales";
 
 export default function Header() {
   const t = useTranslations();
@@ -47,10 +49,15 @@ export default function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         {/* Logo 和站点名称 */}
         <div className="flex items-center gap-3">
-          <Link href={`/${locale}`} className="flex items-center gap-2 transition-opacity hover:opacity-80">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white font-bold text-sm shadow-md">
-              T
-            </div>
+          <Link href={`/${locale}`} className="flex items-center gap-3 transition-opacity hover:opacity-80">
+            <Image
+              src="/logo.png"
+              alt="Toon Fast Logo"
+              width={32}
+              height={32}
+              className="h-8 w-8"
+              priority
+            />
             <span className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
               {t("siteName")}
             </span>
@@ -87,12 +94,16 @@ export default function Header() {
             <select
               value={locale}
               onChange={(e) => handleLocaleChange(e.target.value)}
-              className="appearance-none rounded-lg border border-zinc-300 bg-white px-4 py-2 pr-10 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:border-blue-400 hover:shadow-md focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-blue-500"
+              className="appearance-none rounded-lg border border-zinc-300 bg-white px-3 py-2 pr-8 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:border-blue-400 hover:shadow-md focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-blue-500"
+              style={{ minWidth: "140px" }}
             >
-              <option value="zh">中文</option>
-              <option value="en">English</option>
+              {locales.map((loc) => (
+                <option key={loc} value={loc}>
+                  {localeNames[loc].flag} {localeNames[loc].nativeName}
+                </option>
+              ))}
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <svg className="h-4 w-4 text-zinc-500 dark:text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>

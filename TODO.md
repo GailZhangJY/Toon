@@ -62,3 +62,108 @@ markdown中的代码块没有正确渲染
 
 优化blog文章内容markdown的展示
 a标签去掉下划线
+sir
+更新sitemap
+
+将网页中Toon Fast的logo更新为 logo.png
+
+Footer中的logo更新为logo.png
+
+
+About中的logo更新为logo.png
+
+
+<div class="nav__lang-dropdown">
+            
+            <a href="/es/" class="nav__lang-option" hreflang="es" data-lang="es">
+              <span class="nav__lang-flag">🇪🇸</span>
+              <span class="nav__lang-name">Español</span>
+            </a>
+            <a href="/fr/" class="nav__lang-option" hreflang="fr" data-lang="fr">
+              <span class="nav__lang-flag">🇫🇷</span>
+              <span class="nav__lang-name">Français</span>
+            </a>
+            <a href="/nl/" class="nav__lang-option" hreflang="nl" data-lang="nl">
+              <span class="nav__lang-flag">🇳🇱</span>
+              <span class="nav__lang-name">Nederlands</span>
+            </a>
+            <a href="/zh/" class="nav__lang-option" hreflang="zh" data-lang="zh">
+              <span class="nav__lang-flag">🇨🇳</span>
+              <span class="nav__lang-name">中文</span>
+            </a>
+            <a href="/ja/" class="nav__lang-option" hreflang="ja" data-lang="ja">
+              <span class="nav__lang-flag">🇯🇵</span>
+              <span class="nav__lang-name">日本語</span>
+            </a>
+            <a href="/ko/" class="nav__lang-option" hreflang="ko" data-lang="ko">
+              <span class="nav__lang-flag">🇰🇷</span>
+              <span class="nav__lang-name">한국어</span>
+            </a>
+            <a href="/vi/" class="nav__lang-option" hreflang="vi" data-lang="vi">
+              <span class="nav__lang-flag">🇻🇳</span>
+              <span class="nav__lang-name">Tiếng Việt</span>
+            </a>
+            <a href="/" class="nav__lang-option" hreflang="en" data-lang="en">
+              <span class="nav__lang-flag">🇺🇸</span>
+              <span class="nav__lang-name">English</span>
+            </a><a href="/id/" class="nav__lang-option" hreflang="id" data-lang="id">
+              <span class="nav__lang-flag">🇮🇩</span>
+              <span class="nav__lang-name">Bahasa Indonesia
+</span>
+            </a>
+            <a href="/pt/" class="nav__lang-option" hreflang="pt" data-lang="pt">
+              <span class="nav__lang-flag">🇵🇹</span>
+              <span class="nav__lang-name">Português</span>
+            </a>
+            <a href="/hi/" class="nav__lang-option" hreflang="hi" data-lang="hi">
+              <span class="nav__lang-flag">🇮🇳</span>
+              <span class="nav__lang-name">हिन्दी</span>
+            </a>
+            <a href="/ur/" class="nav__lang-option" hreflang="ur" data-lang="ur">
+              <span class="nav__lang-flag">🇵🇰</span>
+              <span class="nav__lang-name">اردو</span>
+            </a>
+            <a href="/de/" class="nav__lang-option" hreflang="de" data-lang="de">
+              <span class="nav__lang-flag">🇩🇪</span>
+              <span class="nav__lang-name">Deutsch</span>
+            </a>
+            <a href="/sv/" class="nav__lang-option" hreflang="sv" data-lang="sv">
+              <span class="nav__lang-flag">🇸🇪</span>
+              <span class="nav__lang-name">Svenska</span>
+            </a>
+            <a href="/ar/" class="nav__lang-option" hreflang="ar" data-lang="ar">
+              <span class="nav__lang-flag">🇸🇦</span>
+              <span class="nav__lang-name">العربية</span>
+            </a>
+            <a href="/he/" class="nav__lang-option" hreflang="he" data-lang="he">
+              <span class="nav__lang-flag">🇮🇱</span>
+              <span class="nav__lang-name">עברית</span>
+            </a>
+            <a href="/it/" class="nav__lang-option" hreflang="it" data-lang="it">
+              <span class="nav__lang-flag">🇮🇹</span>
+              <span class="nav__lang-name">Italiano</span>
+            </a>
+            <a href="/pl/" class="nav__lang-option" hreflang="pl" data-lang="pl">
+              <span class="nav__lang-flag">🇵🇱</span>
+              <span class="nav__lang-name">Polski</span>
+            </a>
+            <a href="/ru/" class="nav__lang-option" hreflang="ru" data-lang="ru">
+              <span class="nav__lang-flag">🇷🇺</span>
+              <span class="nav__lang-name">Русский</span>
+            </a>
+            <a href="/tr/" class="nav__lang-option" hreflang="tr" data-lang="tr">
+              <span class="nav__lang-flag">🇹🇷</span>
+              <span class="nav__lang-name">Türkçe</span>
+            </a>
+          </div>
+
+
+es
+pt
+jp
+这几的json语言你来翻译
+不要创建说明文档
+
+
+更新sitemap
+不要创建说明文档

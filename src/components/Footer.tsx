@@ -2,6 +2,8 @@
 
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
+import Image from "next/image";
+import { locales, localeNames } from "@/i18n/locales";
 
 export default function Footer() {
   const t = useTranslations();
@@ -18,11 +20,7 @@ export default function Footer() {
     { name: "CSV to JSON", path: `/${locale}/csv-to-json` },
   ];
 
-  // 语言列表
-  const languages = [
-    { code: "zh", name: "中文" },
-    { code: "en", name: "English" },
-  ];
+  // 语言列表（使用动态配置）
 
   // 资源链接
   const resourceLinks = [
@@ -34,13 +32,17 @@ export default function Footer() {
   return (
     <footer className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
           {/* 版权信息 */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white font-bold text-sm shadow-md">
-                T
-              </div>
+            <div className="flex items-center gap-3">
+              <Image
+                src="/logo.png"
+                alt="Toon Fast Logo"
+                width={32}
+                height={32}
+                className="h-8 w-8"
+              />
               <span className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
                 {t("siteName")}
               </span>
@@ -73,18 +75,19 @@ export default function Footer() {
           </div>
 
           {/* 语言列表 */}
-          <div>
+          <div className="lg:col-span-2">
             <h3 className="mb-4 text-sm font-semibold text-zinc-900 dark:text-zinc-50">
               {t("footerLanguages")}
             </h3>
-            <ul className="space-y-2">
-              {languages.map((lang) => (
-                <li key={lang.code}>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 sm:grid-cols-3">
+              {locales.map((loc) => (
+                <li key={loc}>
                   <Link
-                    href={`/${lang.code}`}
-                    className="text-sm text-zinc-600 transition-colors hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400"
+                    href={`/${loc}`}
+                    className="flex items-center gap-1.5 text-sm text-zinc-600 transition-colors hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400"
                   >
-                    {lang.name}
+                    <span>{localeNames[loc].flag}</span>
+                    <span className="truncate">{localeNames[loc].nativeName}</span>
                   </Link>
                 </li>
               ))}
