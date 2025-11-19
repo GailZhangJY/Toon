@@ -29,6 +29,28 @@ export default function Footer() {
     { key: "about", href: `/${locale}/about`, label: t("navAbout") },
   ];
 
+  // 推荐链接徽章（可扩展）
+  const recommendLinks = [
+    {
+      key: "twelve-tools",
+      href: "https://twelve.tools",
+      imgSrc: "https://twelve.tools/badge0-white.svg",
+      alt: "Featured on Twelve Tools",
+      width: 200,
+      height: 54,
+    },
+    {
+      key: "nextgen-tools",
+      href: "https://nxgntools.com/tools/toon-fast",
+      imgSrc:
+        "https://nxgntools.com/api/embed/toon-fast?type=FEATURED_ON&hideUpvotes=true",
+      alt: "NextGen Tools Badge",
+      // 保持与原始 HTML 徽章相近的高度
+      width: 200,
+      height: 48,
+    },
+  ];
+
   return (
     <footer className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -117,6 +139,24 @@ export default function Footer() {
 
         {/* 底部分隔线和额外信息 */}
         <div className="mt-8 border-t border-zinc-200 pt-8 dark:border-zinc-800">
+          <div className="mb-4 flex flex-wrap items-center justify-center gap-4">
+            {recommendLinks.map((link) => (
+              <a
+                key={link.key}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={link.imgSrc}
+                  alt={link.alt}
+                  width={link.width}
+                  height={link.height}
+                  loading="lazy"
+                />
+              </a>
+            ))}
+          </div>
           <p className="text-center text-xs text-zinc-500 dark:text-zinc-500">
             {t("footerPrivacyNote")}
           </p>

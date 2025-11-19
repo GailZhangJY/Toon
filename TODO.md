@@ -508,3 +508,12 @@ csv 转toon 和json不对
     }
   }
 ]
+
+优化
+1. 页脚添加，以后可能添加多个推荐链接
+<a href="https://twelve.tools" target="_blank"><img src="https://twelve.tools/badge0-white.svg" alt="Featured on Twelve Tools" width="200" height="54"></a>
+
+页脚添加
+<a href="https://nxgntools.com/tools/toon-fast" target="_blank" rel="noopener" style="display: inline-block; width: auto;">
+    <img src="https://nxgntools.com/api/embed/toon-fast?type=FEATURED_ON&hideUpvotes=true" alt="NextGen Tools Badge" style="height: 48px; width: auto;" />
+</a>
