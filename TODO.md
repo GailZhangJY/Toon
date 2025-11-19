@@ -216,3 +216,295 @@ Total
 0.197
 Input Format Toon JSON CSV Swap ⇄ Output Format Toon JSON CSV Input TOON Import…
 <div class="space-y-6">
+
+
+优化
+1. 输出输出框增加行号展示
+<!-- 2. 输出输出框增加折叠功能
+
+优化
+折叠是可以根据toon/json/csv/数据的结构来判断的
+不是折叠整个输入输出框
+
+优化
+1. 折叠小箭头和行号重叠
+2. 折叠小箭头没有实际折叠输入框中的内容
+
+优化
+1. 行号在左 折叠箭头在有，缩小此区域的宽度
+2. 不需要展示多少行已折叠
+
+优化
+折叠后展示一行 要展示 },
+
+优化
+折叠后 { 和 }, 展示在一行 -->
+
+优化
+输出输出框增加行号展示，删除折叠功能
+
+
+优化
+输出输出框现在最大高度，超出后展示滚动条
+
+优化
+左右输出输出框始终保持一致高度，超出后取最大值
+
+不要修改宽度
+
+那是里面的内容会挤压宽度？
+
+{
+  "sites": {
+    "site": [
+      {
+        "id": "1",
+        "name": "菜鸟教程",
+        "url": "www.runoob.com"
+      },
+      {
+        "id": "2",
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      },
+      {
+        "id": "3",
+        "name": "Google",
+        "url": "www.google.com"
+      },
+      {
+        "id": "2",
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      },
+      {
+        "id": "2",
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      },
+      {
+        "id": "2",
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      },
+      {
+        "id": "2",
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      },
+      {
+        "id": "2",
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      },
+      {
+        "id": "2",
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      },
+      {
+        "id": "2",
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      },
+      {
+        "id": "2",
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      }
+    ]
+  }
+}
+
+json to csv 有问题
+
+sites.site
+"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+
+
+id,name,url
+1,菜鸟教程,www.runoob.com
+2,菜鸟工具,www.jyshare.com
+3,Google,www.google.com
+2,菜鸟工具,www.jyshare.com
+2,菜鸟工具,www.jyshare.com
+2,菜鸟工具,www.jyshare.com
+2,菜鸟工具,www.jyshare.com
+2,菜鸟工具,www.jyshare.com
+2,菜鸟工具,www.jyshare.com
+2,菜鸟工具,www.jyshare.com
+2,菜鸟工具,www.jyshare.com
+
+sites.site.id,sites.site.name,sites.site.url
+1,菜鸟教程,www.runoob.com
+2,菜鸟工具,www.jyshare.com
+3,Google,www.google.com
+2,菜鸟工具,www.jyshare.com
+2,菜鸟工具,www.jyshare.com
+2,菜鸟工具,www.jyshare.com
+2,菜鸟工具,www.jyshare.com
+2,菜鸟工具,www.jyshare.com
+2,菜鸟工具,www.jyshare.com
+2,菜鸟工具,www.jyshare.com
+2,菜鸟工具,www.jyshare.com
+
+csv 转toon 和json不对
+
+[11]:
+  - sites:
+      site:
+        id: 1
+        name: 菜鸟教程
+        url: www.runoob.com
+  - sites:
+      site:
+        id: 2
+        name: 菜鸟工具
+        url: www.jyshare.com
+  - sites:
+      site:
+        id: 3
+        name: Google
+        url: www.google.com
+  - sites:
+      site:
+        id: 2
+        name: 菜鸟工具
+        url: www.jyshare.com
+  - sites:
+      site:
+        id: 2
+        name: 菜鸟工具
+        url: www.jyshare.com
+  - sites:
+      site:
+        id: 2
+        name: 菜鸟工具
+        url: www.jyshare.com
+  - sites:
+      site:
+        id: 2
+        name: 菜鸟工具
+        url: www.jyshare.com
+  - sites:
+      site:
+        id: 2
+        name: 菜鸟工具
+        url: www.jyshare.com
+  - sites:
+      site:
+        id: 2
+        name: 菜鸟工具
+        url: www.jyshare.com
+  - sites:
+      site:
+        id: 2
+        name: 菜鸟工具
+        url: www.jyshare.com
+  - sites:
+      site:
+        id: 2
+        name: 菜鸟工具
+        url: www.jyshare.com
+
+[
+  {
+    "sites": {
+      "site": {
+        "id": 1,
+        "name": "菜鸟教程",
+        "url": "www.runoob.com"
+      }
+    }
+  },
+  {
+    "sites": {
+      "site": {
+        "id": 2,
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      }
+    }
+  },
+  {
+    "sites": {
+      "site": {
+        "id": 3,
+        "name": "Google",
+        "url": "www.google.com"
+      }
+    }
+  },
+  {
+    "sites": {
+      "site": {
+        "id": 2,
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      }
+    }
+  },
+  {
+    "sites": {
+      "site": {
+        "id": 2,
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      }
+    }
+  },
+  {
+    "sites": {
+      "site": {
+        "id": 2,
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      }
+    }
+  },
+  {
+    "sites": {
+      "site": {
+        "id": 2,
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      }
+    }
+  },
+  {
+    "sites": {
+      "site": {
+        "id": 2,
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      }
+    }
+  },
+  {
+    "sites": {
+      "site": {
+        "id": 2,
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      }
+    }
+  },
+  {
+    "sites": {
+      "site": {
+        "id": 2,
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      }
+    }
+  },
+  {
+    "sites": {
+      "site": {
+        "id": 2,
+        "name": "菜鸟工具",
+        "url": "www.jyshare.com"
+      }
+    }
+  }
+]
