@@ -49,6 +49,14 @@ export default function Footer() {
       width: 200,
       height: 48,
     },
+    {
+      key: "frogdr",
+      href: "https://frogdr.com/toon.fast?utm_source=toon.fast",
+      imgSrc: "https://frogdr.com/toon.fast/badge-white.svg?badge=1",
+      alt: "Monitor your Domain Rating with FrogDR",
+      width: 250,
+      height: 54,
+    },
   ];
 
   return (

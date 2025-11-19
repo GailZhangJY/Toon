@@ -517,3 +517,6 @@ csv 转toon 和json不对
 <a href="https://nxgntools.com/tools/toon-fast" target="_blank" rel="noopener" style="display: inline-block; width: auto;">
     <img src="https://nxgntools.com/api/embed/toon-fast?type=FEATURED_ON&hideUpvotes=true" alt="NextGen Tools Badge" style="height: 48px; width: auto;" />
 </a>
+
+页脚添加
+<a href="https://frogdr.com/toon.fast?utm_source=toon.fast" target="_blank"><img src="https://frogdr.com/toon.fast/badge-white.svg?badge=1" alt="Monitor&#0032;your&#0032;Domain&#0032;Rating&#0032;with&#0032;FrogDR" width="250" height="54"></a>
