@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   description: "Toon / JSON / CSV converter",
   other: {
     "google-site-verification": "hhI2SHvPmrPxQTVf4AlE2xK7YzBJbVimlvE8UXchZRo",
+    "msvalidate.01": "8D48DFBBAB976B93C16083C391B0C6CA",
   },
 };
 
